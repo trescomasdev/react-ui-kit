@@ -4,12 +4,6 @@ import './LabeledTextarea.css'
 
 export default class LabeledTextarea extends Component {
 
-  constructor(props){
-    super(props);
-
-    this.setClass = this.setClass.bind(this);
-  }
-
   setClass(classes = []){
 
     if (this.props._value !== "" && this.props._value !== undefined)

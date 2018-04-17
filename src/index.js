@@ -5,6 +5,7 @@ import Button from './components/Button/Button';
 import LabeledInput from './components/LabeledInput/LabeledInput';
 import LabeledSelect from './components/LabeledSelect/LabeledSelect';
 import LabeledCheckbox from './components/LabeledCheckbox/LabeledCheckbox';
+import LabeledTextarea from './components/LabeledTextarea/LabeledTextarea';
 import DockedMenu from './components/DockedMenu/DockedMenu';
 import FileUpload from './components/FileUpload/FileUpload';
 import Loader from './components/Loader/Loader';
@@ -15,6 +16,7 @@ import Modal from './components/Modal/Modal';
 import SubNav from './components/SubNav/SubNav';
 import Title from './components/Title/Title';
 import ProgressBar from './components/ProgressBar/ProgressBar';
+import MediaQuery from './components/MediaQuery/MediaQuery';
 import { NavList, NavListItem } from './components/NavList/NavList';
 
 export {
@@ -25,6 +27,7 @@ export {
   FileUpload,
   LabeledInput,
   LabeledSelect,
+  LabeledTextarea,
   LabeledCheckbox,
   AdminPanelPanel,
   AdminPanelSection,
@@ -37,6 +40,7 @@ export {
   SubNav,
   Title,
   ProgressBar,
+  MediaQuery,
   NavList,
   NavListItem
 }
