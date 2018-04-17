@@ -8,10 +8,7 @@ export default class LabeledSelect extends Component {
   constructor(props){
     super(props)
 
-    let value = this.props._value ? this.props._value.value : undefined
-
-    if (this.props.valueRenderer && data)
-      value = this.props.valueRenderer(this.props._value)
+    let value = this.setValue(this.props._value)
 
     this.state = {
       data: {
@@ -25,10 +22,20 @@ export default class LabeledSelect extends Component {
     this.clear = this.clear.bind(this);
   }
 
+  setValue(value){
+
+    if (!value)
+      return undefined
+
+    if (this.props.valueRenderer)
+      return this.props.valueRenderer(value)
+
+    return value.value;
+
+  }
+
   onChange(data){
-    let value = data.value
-    if (this.props.valueRenderer && data)
-      value = this.props.valueRenderer(data)
+    let value = this.setValue(data)
 
     this.setState({data: {value: value}})
     this.props._onChange(data)
@@ -44,19 +51,33 @@ export default class LabeledSelect extends Component {
   }
 
   render() {
-    let options = this.props.options
-
+    let options = {filtered: [], options: []}
     if (this.state.data.value){
-      let value = this.state.data.value.toString();
-      options = options.filter((data) => {
-        let val = this.props.valueRenderer && data ? this.props.valueRenderer(data) : data.value
-        return val.toLowerCase().search(value.toLowerCase()) !== -1
+      let string = this.state.data.value.toString();
+
+      this.props.options.forEach((data) => {
+        let value = this.setValue(data)
+
+        if (value && value.toLowerCase().search(string.toLowerCase()) !== -1){
+          options.filtered.push(data)
+        } else {
+          options.options.push(data)
+        }
       })
+    } else {
+      options.options = this.props.options
     }
 
-    options = options.length > 0 ? options.map((data, key) =>
-      <li key={key} onClick={() => this.onChange(data)}>{this.props.valueRenderer && data ? this.props.valueRenderer(data) : data.value}</li>
-    ) : <li key="not-found">Not found</li>
+    if (options.filtered.length > 0){
+      options.filtered = options.filtered.map((data, key) =>
+        <li key={key} onClick={() => this.onChange(data)}>{this.setValue(data)}</li>
+      )
+      options.filtered.push(<li key="separator" className="separator"></li>)
+    }
+
+    options.options = options.options.length > 0 ? options.options.map((data, key) =>
+      <li key={key} onClick={() => this.onChange(data)}>{this.setValue(data)}</li>
+    ) : null
 
     return(
       <div className="labeled-select">
@@ -68,7 +89,8 @@ export default class LabeledSelect extends Component {
           _onFocus={() => this.setState({focused: true})}
           />
         <ul>
-          {options}
+          {options.filtered}
+          {options.options}
         </ul>
         <FontAwesome className="clear" name="times" onClick={this.clear}/>
       </div>

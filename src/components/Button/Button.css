@@ -1,7 +1,7 @@
 button.button{
-  padding: 5px 10px;
+  padding: 10px 20px;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
   border: 1px solid transparent;
@@ -40,9 +40,9 @@ button.button.main:hover{
 
 /******  Sizes  ******/
 
-button.button.medium{
-  padding: 10px 20px;
-  font-size: 16px;
+button.button.small{
+  padding: 5px 10px;
+  font-size: 12px;
 }
 
 button.button.big{
@@ -50,7 +50,7 @@ button.button.big{
   font-size: 16px;
 }
 
-button.button.bigger{
+button.button.large{
   padding: 30px 40px;
   font-size: 18px;
 }

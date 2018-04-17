@@ -1,5 +1,5 @@
 #data-table{
-
+  position: relative;
 }
 
 #data-table .data-table-desktop{
@@ -18,14 +18,6 @@
 #data-table .data-table-desktop-actions button{
   padding: 10px;
   margin: 0 5px;
-}
-
-#data-table .data-table-desktop-row{
-
-}
-
-#data-table .data-table-desktop-row{
-
 }
 
 #data-table .data-table-desktop-saved-filters{

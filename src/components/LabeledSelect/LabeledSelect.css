@@ -29,6 +29,7 @@
   cursor: pointer;
   display: block;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .labeled-select .labeled-input + ul li:hover{
@@ -37,6 +38,13 @@
 
 .labeled-select .labeled-input + ul li:last-child{
   border-bottom: 0;
+}
+
+.labeled-select .labeled-input + ul .separator{
+  height: 1px;
+  width: 100%;
+  padding: 0;
+  border-top: 1px solid var(--ui-border)
 }
 
 .labeled-select .clear{

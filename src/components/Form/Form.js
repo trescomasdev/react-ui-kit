@@ -57,10 +57,21 @@ export class Form extends Component {
     this.setState({values: values, errors: errors})
   }
 
+  createChild(child, childKey){
+    if (child.props.submit === true){
+      return React.cloneElement(child, { _onClick: this.onSubmit, key: childKey})
+    }
+
+    if (child.props.field === true)
+      return React.cloneElement(child, { _onChange: this.onChangeInput, _value: this.state.values[child.props.name], error: this.state.errors[child.props.name], key: childKey})
+
+    return child;
+  }
+
   validateChilds(data, key){
     if (!data)
       return false;
-          
+
     if (data.type.name === "Fields" && data.props.children.length > 0){
       data.props.children.forEach((grand, key) =>{
         if (grand.props.submit === true)
@@ -83,29 +94,14 @@ export class Form extends Component {
       return false;
 
     if (data.type.name === "Fields" && data.props.children.length > 0){
-      let grands = data.props.children.map((grand, grandKey) =>{
-        if (grand.props.submit === true)
-          return React.cloneElement(grand, { _onClick: this.onSubmit, key: grandKey})
+      let childs = data.props.children.map((child, childKey) => this.createChild(child, childKey));
 
-        if (grand.props.field === true)
-          return React.cloneElement(grand, { _onChange: this.onChangeInput, _value: this.state.values[grand.props.name], error: this.state.errors[grand.props.name], key: grandKey})
-
-        return grand
-      });
-
-      return React.cloneElement(data, {children: grands, key: key})
+      return React.cloneElement(data, {children: childs, key: key})
 
     } else if (data.type.name === "Fields") {
-      let grand = data.props.children
+      let child = this.createChild(data.props.children, data.props.children.props.name)
 
-      if (data.props.children.props.submit === true){
-        grand = React.cloneElement(data.props.children, { _onClick: this.onSubmit, key: key})
-      }
-
-      if (data.props.children.props.field === true)
-        grand = React.cloneElement(data.props.children, { _onChange: this.onChangeInput, _value: this.state.values[data.props.children.name], error: this.state.errors[data.props.children.name], key: key})
-
-      return React.cloneElement(data, {children: grand, key: key})
+      return React.cloneElement(data, {children: child, key: child.key})
     }
 
     return data;
