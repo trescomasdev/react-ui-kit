@@ -1,0 +1,37 @@
+.nav{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav .nav-item{
+  padding: 15px;
+  border-bottom: 1px solid var(--ui-border);
+  cursor: pointer;
+}
+
+.nav .nav-item:hover{
+  background: var(--ui-bg-inv);
+  cursor: pointer;
+}
+
+.nav .nav-item a{
+  color: var(--ui-placeholder);
+}
+
+/********* With Icon ***********/
+
+.nav .nav-item.icon a{
+  margin-left: 5px;
+}
+
+.nav .nav-item span.fa{
+  color: var(--ui-placeholder);
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.nav .nav-item.icon:hover span.fa{
+  margin-left: 10px;
+}

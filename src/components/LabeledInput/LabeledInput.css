@@ -1,0 +1,122 @@
+.labeled-input{
+    position: relative;
+}
+
+.labeled-input label{
+  position: relative;
+  display: block;
+}
+
+.labeled-input .error{
+  color: var(--invalid-color);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
+  position: absolute;
+  font-size: 12px;
+}
+
+.labeled-input label input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  font-size: 14px;
+  border: 1px solid var(--ui-border);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.labeled-input.valid label input{
+  border-color: var(--valid-color);
+}
+
+.labeled-input.invalid label input{
+  border-color: var(--invalid-color);
+}
+
+.labeled-input.valid label:after,
+.labeled-input.invalid label:after{
+  content: '';
+  position: absolute;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  font-family: FontAwesome;
+  width: 20px;
+  height: 20px;
+  text-align: center ;
+  line-height: 20px;
+  margin-right: 10px;
+}
+
+.labeled-input.valid label:after{
+  background: var(--valid-color);
+  content: "\f00c";
+}
+
+.labeled-input.invalid label:after{
+  background: var(--invalid-color);
+  content: "\F00D";
+}
+
+.labeled-input label input::-webkit-input-placeholder,
+.labeled-input label input::-moz-placeholder,
+.labeled-input label input:-ms-input-placeholder,
+.labeled-input label input::placeholder{
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: var(--ui-placeholder);
+  font-size: 18px;
+}
+
+
+.labeled-input label input:focus,
+.labeled-input.populated label input {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+
+.labeled-input label input:focus::-webkit-input-placeholder,
+.labeled-input.populated label input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.labeled-input label input:focus::-moz-placeholder,
+.labeled-input.populated label input::-moz-placeholder {
+  color: transparent;
+}
+
+.labeled-input label input:focus:-ms-input-placeholder,
+.labeled-input.populated label input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.labeled-input label input:focus::placeholder,
+.labeled-input.populated label input::placeholder {
+  color: transparent;
+}
+
+.labeled-input label input:focus + span,
+.labeled-input.populated label input + span {
+  opacity: 1;
+  top: 10px;
+  left: 15px;
+}
+
+.labeled-input label input + span {
+  color: var(--ui-color);
+  font-size: 12px;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

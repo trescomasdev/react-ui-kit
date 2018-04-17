@@ -1,0 +1,63 @@
+button.button{
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  outline: 0;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+/******  Types  ******/
+
+button.button.default{
+  background: var(--ui-bg-inv);
+  color: var(--ui-text);
+  border-color: var(--ui-border);
+}
+
+button.button.default:hover{
+  background: var(--ui-bg);
+  color: var(--ui-placeholder);
+  border-color: var(--ui-border);
+}
+
+button.button.main{
+  color: var(--ui-bg);
+  border-color: var(--main-color);
+  background: var(--main-color);
+}
+
+button.button.main:hover{
+  color: var(--main-color);
+  border-color: var(--main-color);
+  background: var(--ui-bg);
+}
+
+/******  Sizes  ******/
+
+button.button.medium{
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+button.button.big{
+  padding: 20px 30px;
+  font-size: 16px;
+}
+
+button.button.bigger{
+  padding: 30px 40px;
+  font-size: 18px;
+}
+
+button.button.full{
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 18px
+}

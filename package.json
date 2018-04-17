@@ -1,0 +1,33 @@
+{
+  "name": "trescomas-react-ui",
+  "version": "1.0.98",
+  "description": "",
+  "main": "build/index.js",
+  "peerDependencies": {
+    "react": "^15.5.4"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-alpha.11",
+    "react": "^15.5.4",
+    "react-fontawesome": "^1.6.1",
+    "validator": "^9.4.1",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": "trescomas",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.20.3",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  }
+}

@@ -1,0 +1,18 @@
+.map-pin{
+  transform: translateX(0) translateY(-50%);
+  left: 0;
+  top: 0;
+}
+
+.map-pin span{
+  font-size: 25px;
+  color: var(--main-color);
+}
+
+.map-pin .tooltip{
+  display: none;
+}
+
+.map-pin:hover .tooltip{
+  display: block;
+}

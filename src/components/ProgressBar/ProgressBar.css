@@ -1,0 +1,35 @@
+
+
+
+/* -----------------------------------------------------
+	CSS Progress Bars
+-------------------------------------------------------- */
+.progress-bar-container {
+  width: 100%;
+}
+
+.progress-bar-container .progress-bar {
+  display: block;
+  float: left;
+  width: 0%;
+  height: 100%;
+  background: var(--ui-color);
+  -webkit-box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: width 0.8s ease-in-out;
+  transition: width 0.8s ease-in-out;
+}
+
+.progress-bg {
+  position: relative;
+  width: 100%;
+  background-color: var(--ui-border);
+}
+
+.progress-bg .progress-bar {
+  display: block;
+  float: none;
+  width: 0%;
+  height: 4px;
+  background: var(--ui-color);
+}

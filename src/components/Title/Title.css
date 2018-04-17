@@ -1,0 +1,51 @@
+.title{
+  margin: 10px 0;
+}
+
+.title.underline{
+  border-bottom: 1px solid var(--ui-border);
+  padding: 10px 0
+}
+
+.title.no-margin{
+  margin: 0;
+}
+
+.title h1,
+.title h2,
+.title h3,
+.title h4,
+.title h5{
+  color: var(--ui-heading);
+  font-weight: bold;
+}
+
+.title h1 span.fa,
+.title h1{
+  font-size: 24px;
+}
+
+.title h2 span.fa,
+.title h2{
+  font-size: 22px
+}
+
+.title h3 span.fa,
+.title h3{
+  font-size: 20px
+}
+
+.title h4 span.fa,
+.title h4{
+  font-size: 18px
+}
+
+.title h5 span.fa,
+.title h5{
+  font-size: 16px;
+}
+
+.title span.fa{
+  color: var(--ui-heading);
+  margin-right: 5px;
+}

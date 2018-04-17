@@ -1,0 +1,78 @@
+#docked-menu{
+  width: 220px;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+#docked-menu.toggled{
+  width: 50px;
+}
+
+#docked-menu{
+ background: var(--ui-bg);
+}
+
+#docked-menu .title{
+  padding: 15px;
+  border-bottom: 1px solid var(--ui-border);
+  color: var(--ui-heading);
+}
+
+#docked-menu .nav .nav-item.icon{
+  padding-left: 25px;
+  display: flex;
+  overflow: hidden;
+}
+
+#docked-menu.toggled .nav .nav-item{
+  height: 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#docked-menu.toggled .nav .nav-item a{
+  display: none;
+}
+
+#docked-menu.toggled .nav .nav-item.icon:hover span.fa{
+  margin: 0
+}
+
+#docked-menu.toggled h5{
+  display: none;
+}
+
+#docked-menu .toggle{
+  color: var(--ui-placeholder);
+  z-index: -1;
+  display: flex;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  right: 0;
+  transform: translateY(-200%) translateX(50%);
+  background: var(--ui-bg);
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+#docked-menu .toggle span{
+  padding-left: 20px;
+}
+
+#docked-menu:hover .toggle{
+  opacity: 1
+}

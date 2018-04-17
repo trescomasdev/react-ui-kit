@@ -1,0 +1,15 @@
+.data-table-responsive{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.data-table-responsive-row{
+  display: table-row;
+  flex: 1;
+  flex-direction: row;
+}
+
+.data-table-responsive-cell{
+  display: table-cell;
+}

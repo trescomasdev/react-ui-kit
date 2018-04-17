@@ -1,0 +1,56 @@
+.labeled-select{
+    position: relative;
+    overflow: visible;
+}
+
+.labeled-select .labeled-input + ul{
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  background: var(--ui-bg);
+  width: 100%;
+  border: 1px solid var(--ui-border);
+  border-top: 0;
+  box-sizing: border-box;
+  -moz-transition:all 200ms linear;
+  -webkit-transition:all 200ms linear;
+  -o-transition:all 200ms linear;
+  transition:all 200ms linear;
+}
+
+.labeled-select .labeled-input.focused + ul{
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.labeled-select .labeled-input + ul li{
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.labeled-select .labeled-input + ul li:hover{
+  background: var(--ui-bg-helper)
+}
+
+.labeled-select .labeled-input + ul li:last-child{
+  border-bottom: 0;
+}
+
+.labeled-select .clear{
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  font-size: 12px;
+  top: 50%;
+  color: var(--invalid-color);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.labeled-select .labeled-input.populated + ul + .clear{
+  display: block;
+}

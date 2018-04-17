@@ -1,0 +1,58 @@
+.modal-container{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--ui-bg-opacity);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container .modal{
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
+  background: var(--ui-bg);
+  -webkit-box-shadow: 0 3px 7px var(--ui-shadow);
+  -moz-box-shadow: 0 3px 7px var(--ui-shadow);
+  box-shadow: 0 3px 7px var(--ui-shadow);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 10px;
+}
+
+.modal-container .modal .modal-header{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid var(--ui-border);
+  margin-bottom: 10px;
+}
+
+.modal-container .modal .modal-header .close-modal{
+  margin-left: auto;
+  border: 0;
+  background: 0;
+  outline: 0;
+}
+
+.modal-container .modal .modal-header .close-modal span{
+  color: var(--ui-placeholder);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-container .modal .modal-header .close-modal:hover span{
+  color: var(--ui-text);
+}
+
+.modal-container .modal .modal-footer{
+  border-top: 1px solid var(--ui-border);
+  margin-top: 10px;
+  padding: 10px;
+}

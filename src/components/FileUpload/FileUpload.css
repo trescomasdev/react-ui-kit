@@ -1,0 +1,22 @@
+.file-upload{
+  width: 100%;
+  display: inline-block;
+  border: 2px dashed var(--ui-border);
+  color: var(--ui-text);
+  box-sizing: border-box;
+}
+
+.file-upload input{
+  display: none;
+}
+
+.file-upload label{
+  padding: 40px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-upload label span.fa{
+  margin-right: 10px;
+}

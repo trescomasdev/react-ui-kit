@@ -1,0 +1,63 @@
+.admin-panel{
+
+}
+
+.admin-panel .panel-section{
+  display: flex;
+  padding: 20px 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.admin-panel .panel{
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  flex-basis: 100%;
+  margin: 0;
+  box-shadow: 0 1px 5px rgba(30,30,30,0.15), 0 2px 5px rgba(40,40,40,0.20);
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.admin-panel .panel.half{
+  flex-basis: 49%
+}
+
+.admin-panel .panel .panel-header{
+  border-bottom: 1px solid var(--ui-border);
+  margin-bottom: 15px;
+  display: flex;
+  padding-bottom: 15px;
+}
+
+.admin-panel .panel .panel-header .panel-title{
+  color: var(--ui-heading)
+}
+
+.admin-panel .panel .panel-header .panel-title span.fa{
+  margin-right: 10px;
+}
+
+.admin-panel .panel .panel-header .panel-actions{
+  margin-left: auto;
+}
+
+.admin-panel .panel .panel-header .panel-actions span{
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.admin-panel .panel .panel-content{
+  max-height: auto;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.admin-panel .panel.collapsed .panel-content{
+  max-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
