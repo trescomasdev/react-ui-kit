@@ -1,5 +1,5 @@
 #sub-nav{
-  background: var(--ui-bg-helper);
+  background: var(--bg);
   border-bottom: 1px solid var(--ui-border);
   padding: 10px 20px;
   box-sizing: border-box;
