@@ -15,7 +15,7 @@ button.button{
 /******  Types  ******/
 
 button.button.default{
-  background: var(--ui-bg-inv);
+  background: var(--ui-bg-helper);
   color: var(--ui-text);
   border-color: var(--ui-border);
 }

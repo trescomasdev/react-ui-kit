@@ -9,11 +9,13 @@ export default class LabeledTextarea extends Component {
     if (this.props._value !== "" && this.props._value !== undefined)
       classes.push("populated");
 
-    if ((!this.props.error || this.props.error.length === 0) && this.props._value !== "" &&  this.props._value !== undefined)
-      classes.push("valid");
+    if (this.props.validate){
+      if ((!this.props.error || this.props.error.length === 0) && this.props._value !== "" &&  this.props._value !== undefined)
+        classes.push("valid");
 
-    if (this.props.error && this.props.error.length > 0)
-      classes.push("invalid");
+      if (this.props.error && this.props.error.length > 0)
+        classes.push("invalid");
+    }
 
     return classes.join(" ");
   }
@@ -32,7 +34,7 @@ export default class LabeledTextarea extends Component {
             />
           <span>{this.props.placeholder}</span>
         </label>
-        {this.props.error && this.props.error.length > 0
+        {this.props.validate && this.props.error && this.props.error.length > 0
           ?
             <span className="error">{this.props.error.join(" ")}</span>
           :

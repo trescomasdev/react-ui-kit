@@ -18,6 +18,8 @@ import Title from './components/Title/Title';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import MediaQuery from './components/MediaQuery/MediaQuery';
 import { NavList, NavListItem } from './components/NavList/NavList';
+import Notifications from './components/Notifications/Notifications';
+import NotificationStore from './components/Notifications/NotificationStore';
 
 export {
   Form,
@@ -42,5 +44,7 @@ export {
   ProgressBar,
   MediaQuery,
   NavList,
-  NavListItem
+  NavListItem,
+  Notifications,
+  NotificationStore
 }

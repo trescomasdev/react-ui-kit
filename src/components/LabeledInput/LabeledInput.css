@@ -48,7 +48,8 @@
   top: 0;
   bottom: 0;
   right: 0;
-  font-family: FontAwesome;
+  font-weight: 900;  
+  font-family: "Font Awesome 5 Free";
   width: 20px;
   height: 20px;
   text-align: center ;
@@ -63,7 +64,7 @@
 
 .labeled-input.invalid label:after{
   background: var(--invalid-color);
-  content: "\F00D";
+  content: "\f00d";
 }
 
 .labeled-input label input::-webkit-input-placeholder,

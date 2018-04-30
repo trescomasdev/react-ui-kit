@@ -72,7 +72,7 @@ export class Form extends Component {
     if (!data)
       return false;
 
-    if (data.type.name === "Fields" && data.props.children.length > 0){
+    if (data.props.fields === true && data.props.children.length > 0){
       data.props.children.forEach((grand, key) =>{
         if (grand.props.submit === true)
           return null;
@@ -80,7 +80,7 @@ export class Form extends Component {
         if (grand.props.field === true)
           this.onChangeInput(grand, true)
       });
-    } else if (data.type.name === "Fields") {
+    } else if (data.props.fields === true) {
       if (data.props.submit === true)
         return null;
 
@@ -93,15 +93,15 @@ export class Form extends Component {
     if (!data)
       return false;
 
-    if (data.type.name === "Fields" && data.props.children.length > 0){
+    if (data.props.fields === true && data.props.children.length > 0){
       let childs = data.props.children.map((child, childKey) => this.createChild(child, childKey));
 
-      return React.cloneElement(data, {children: childs, key: key})
+      return React.cloneElement(data, {children: childs, key: key});
 
-    } else if (data.type.name === "Fields") {
-      let child = this.createChild(data.props.children, data.props.children.props.name)
+    } else if (data.props.fields === true) {
+      let child = this.createChild(data.props.children, data.props.children.props.name);
 
-      return React.cloneElement(data, {children: child, key: child.key})
+      return React.cloneElement(data, {children: child, key: child.key});
     }
 
     return data;
@@ -121,9 +121,13 @@ export class Form extends Component {
 export class Fields extends Component {
   render() {
     return(
-      <div className="form-fields">
+      <div className="form-fields" fields="true">
         {this.props.children}
       </div>
     );
   }
 }
+
+Fields.defaultProps = {
+  fields: true
+};

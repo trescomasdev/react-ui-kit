@@ -73,7 +73,7 @@
 
 #data-table .data-table-desktop-row:nth-child(even):hover .data-table-desktop-cell,
 #data-table .data-table-desktop-row:hover .data-table-desktop-cell{
-  background: var(--ui-bg-inv)
+  background: var(--ui-bg-helper)
 }
 
 #data-table .data-table-desktop-header-bar{

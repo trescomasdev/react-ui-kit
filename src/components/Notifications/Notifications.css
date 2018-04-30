@@ -1,0 +1,55 @@
+#notifications{
+  position: absolute;
+  z-index: 900;
+  right: 20px;
+  top: 20px;
+}
+
+#notifications .notification{
+  background: var(--ui-bg-helper);
+  border: 1px solid var(--ui-border);
+  color: var(--ui-text);
+  padding: 20px;
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+  min-width: 240px;
+  cursor: pointer;
+}
+
+#notifications .notification div:last-child{
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+#notifications .notification .notification-title{
+  margin-bottom: 5px;
+}
+
+#notifications .notification .notification-desc{
+  color: var(--ui-placeholder);
+  font-size: 12px;
+}
+
+#notifications .notification.success{
+  border-color: var(--valid-color);
+  color: var(--valid-color);
+}
+
+#notifications .notification.error{
+  border-color: var(--invalid-color);
+  color: var(--invalid-color);
+}
+
+#notifications .notification.warning{
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+}
+
+#notifications .notification.info{
+  border-color: var(--info-color);
+  color: var(--info-color);
+}
