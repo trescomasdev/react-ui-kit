@@ -38,7 +38,7 @@ export default class LabeledSelect extends Component {
     let value = this.setValue(data)
 
     this.setState({data: {value: value}})
-    this.props._onChange(data)
+    this.props._onChange(data, this)
   }
 
   clear(){
@@ -87,6 +87,8 @@ export default class LabeledSelect extends Component {
           _value={this.state.data.value}
           _onChange={(e) => this.setState({data: {value: e.target.value}})}
           _onFocus={() => this.setState({focused: true})}
+          error={this.props.error}
+          validate={this.props.validate}
           />
         <ul>
           {options.filtered}

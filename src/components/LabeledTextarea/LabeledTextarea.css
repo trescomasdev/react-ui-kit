@@ -1,6 +1,6 @@
 .labeled-textarea{
   position: relative;
-  margin: 15px 0;
+  margin: 0;
 }
 
 .labeled-textarea label{
@@ -24,9 +24,9 @@
   margin: 0;
   border: none;
   padding: 15px;
-  background: transparent;
-  border: 1px solid var(--alt-light-line-color);
-  color: var(--input-text-color);
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  border: 1px solid var(--ui-border);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -78,25 +78,25 @@
 .labeled-textarea label textarea::-webkit-input-placeholder {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  color: var(--alt-dark-color);
+  color: var(--ui-placeholder);
 }
 
 .labeled-textarea label textarea::-moz-placeholder {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  color: var(--alt-dark-color);
+  color: var(--ui-placeholder);
 }
 
 .labeled-textarea label textarea:-ms-input-placeholder {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  color: var(--alt-dark-color);
+  color: var(--ui-placeholder);
 }
 
 .labeled-textarea label textarea::placeholder {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  color: var(--alt-dark-color);
+  color: var(--ui-placeholder);
 }
 
 .labeled-textarea label textarea:focus,
@@ -134,7 +134,7 @@
 
 .labeled-textarea label textarea + span {
   font-weight: bold;
-  color: var(--main-color);
+  color: var(--ui-color);
   font-size: 12px;
   position: absolute;
   top: 0px;

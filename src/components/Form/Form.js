@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-
-import { validateInput } from './validation';
-
+import { validateInput, validateSelect } from './validation';
 
 export class Form extends Component {
 
   constructor(props){
     super(props);
 
-    let initialValues = {}
+    let initialValues = this.props.initialValues || {};
 
     if (this.props.children.length > 0){
       this.props.children.forEach((data, key) => {
@@ -23,12 +21,15 @@ export class Form extends Component {
     this.state = {values: initialValues, errors: {}}
 
     this.onChangeInput = this.onChangeInput.bind(this);
+    this.onChangeSelect = this.onChangeSelect.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
   }
 
   onSubmit(e){
-    e.preventDefault()
+    if (e)
+      e.preventDefault();
+
     if (this.childs.length > 0){
       this.childs.forEach((data, key) => {
         this.validateChilds(data, key)
@@ -37,15 +38,14 @@ export class Form extends Component {
       this.validateChilds(this.childs)
     }
 
-    this.props.onSubmit(this.state)
+    return this.props.onSubmit(this.state)
   }
 
   onChangeInput(e, triggered = false){
-    let values = this.state.values
+    let values = {...this.state.values}
     let errors = this.state.errors
     let obj = triggered ? e.props : e.target
     let value = triggered ? e.props._value : e.target.value
-
     delete errors[obj.name]
     let validate = validateInput(value, this.props.validations[obj.name], this.state.values)
 
@@ -57,54 +57,86 @@ export class Form extends Component {
     this.setState({values: values, errors: errors})
   }
 
+  onChangeSelect(value, element){
+    let values = {...this.state.values}
+    let validate = this.validateSelect(value, element)
+
+    values[element.props.name] =  validate.value;
+
+    this.setState({values: values})
+  }
+
+  validateSelect(value, element){
+    let values = {...this.state.values}
+    let errors = this.state.errors
+    let validations = this.props.validations[element.props.name]
+
+    delete errors[element.props.name]
+    let validate = validateSelect(value, validations, values)
+
+    if (validate.error.length > 0)
+      errors[element.props.name] =  validate.error;
+
+    this.setState({errors: errors})
+
+    return validate;
+  }
+
   createChild(child, childKey){
-    if (child.props.submit === true){
-      return React.cloneElement(child, { _onClick: this.onSubmit, key: childKey})
-    }
+    if (!child.props)
+      return child;
+
+    if (child.props.submit === true)
+      return React.cloneElement(child, { _onClick: this.onSubmit, key: childKey, disabled: child.props.disabled || this.props.disabled})
 
     if (child.props.field === true)
-      return React.cloneElement(child, { _onChange: this.onChangeInput, _value: this.state.values[child.props.name], error: this.state.errors[child.props.name], key: childKey})
+      return React.cloneElement(child, { _onChange: this.onChangeInput, _value: this.state.values[child.props.name], error: this.state.errors[child.props.name], key: childKey, disabled: child.props.disabled || this.props.disabled})
+
+    if (child.props.select === true)
+      return React.cloneElement(child, { _onChange: this.onChangeSelect, _value: this.state.values[child.props.name], error: this.state.errors[child.props.name], key: childKey, disabled: child.props.disabled || this.props.disabled})
 
     return child;
   }
 
   validateChilds(data, key){
-    if (!data)
+    if (!data || data.props.fields !== true )
       return false;
 
-    if (data.props.fields === true && data.props.children.length > 0){
-      data.props.children.forEach((grand, key) =>{
-        if (grand.props.submit === true)
-          return null;
+    let childs = [data.props.children]
 
-        if (grand.props.field === true)
-          this.onChangeInput(grand, true)
-      });
-    } else if (data.props.fields === true) {
-      if (data.props.submit === true)
-        return null;
+    if (data.props.children.length > 0)
+      childs = data.props.children
 
-      if (data.props.field === true)
-        this.onChangeInput(data, true)
-    }
+    childs.forEach((child, key) =>{
+      if (!child.props)
+        return child
+
+      if (child.props.submit === true)
+        return child;
+
+      if (child.props.field === true)
+        this.onChangeInput(child, true)
+
+      if (child.props.select === true)
+        this.validateSelect(this.state.values[child.props.name], child)
+    });
   }
 
   renderChilds(data, key){
     if (!data)
       return false;
 
-    if (data.props.fields === true && data.props.children.length > 0){
-      let childs = data.props.children.map((child, childKey) => this.createChild(child, childKey));
+    if (data.props.fields !== true)
+      return data;
 
-      return React.cloneElement(data, {children: childs, key: key});
+    let childs = [data.props.children]
 
-    } else if (data.props.fields === true) {
-      let child = this.createChild(data.props.children, data.props.children.props.name);
+    if (data.props.children.length > 0)
+      childs = data.props.children;
 
-      return React.cloneElement(data, {children: child, key: child.key});
-    }
+    childs = childs.map((child, childKey) => this.createChild(child, childKey));
 
-    return data;
+    return React.cloneElement(data, {children: childs, key: key});
   }
 
   render() {

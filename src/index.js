@@ -1,3 +1,7 @@
+/********** General ********/
+import Options from './options';
+
+/********** Components ********/
 import { AdminPanelPanel, AdminPanelSection } from './components/AdminPanel/AdminPanel';
 import { Form, Fields } from './components/Form/Form';
 import Input from './components/Input/Input';
@@ -46,5 +50,6 @@ export {
   NavList,
   NavListItem,
   Notifications,
-  NotificationStore
+  NotificationStore,
+  Options
 }

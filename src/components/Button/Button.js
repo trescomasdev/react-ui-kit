@@ -11,6 +11,9 @@ export default class Button extends Component {
 
   setClass(classes = []){
 
+    if (this.props.className)
+      classes.push(this.props.className)
+
     if (this.props.size)
       classes.push(this.props.size)
 
@@ -23,7 +26,7 @@ export default class Button extends Component {
   render() {
 
     return(
-      <button id={this.props.id} className={this.setClass(["button", this.props.type ? this.props.type : "default"])} onClick={this.props._onClick}>
+      <button id={this.props.id} disabled={this.props.disabled} className={this.setClass(["button", this.props.type ? this.props.type : "default"])} onClick={this.props._onClick}>
         {this.props.children}
       </button>
     );

@@ -49,3 +49,31 @@
   color: var(--ui-heading);
   margin-right: 5px;
 }
+
+@media screen and (max-width: 768px){
+  .title h1 span.fa,
+  .title h1{
+    font-size: 20px;
+  }
+
+  .title h2 span.fa,
+  .title h2{
+    font-size: 18px
+  }
+
+  .title h3 span.fa,
+  .title h3{
+    font-size: 16px
+  }
+
+  .title h4 span.fa,
+  .title h4{
+    font-size: 14px
+  }
+
+  .title h5 span.fa,
+  .title h5{
+    font-size: 12px;
+  }
+
+}
